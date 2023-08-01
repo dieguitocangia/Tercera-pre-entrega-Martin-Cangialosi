@@ -1,0 +1,35 @@
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    FitClub - Sección Profesores
+{%endblock titulo%}
+
+{%block header%}
+    Nuestros Profesores
+{%endblock header%}
+
+{% block primario %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Clase a cargo</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for profesor in profesores %}
+    <tr>
+        <td>{{profesor.id}}</td>
+        <td>{{profesor.nombre}}</td>
+        <td>{{profesor.apellido}}</td>
+        <td>{{profesor.email}}</td>
+        <td>{{profesor.clase_a_cargo}}</td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+{% endblock primario %}
