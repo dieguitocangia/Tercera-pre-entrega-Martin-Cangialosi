@@ -9,4 +9,6 @@ urlpatterns = [
     path('alumnos',alumnos, name='alumnos' ),
 
     path('clase_form/', claseForm, name="clase_form" ),
+    path('buscar_clase/', buscarClase, name="buscar_clase" ),
+    path('buscar2/', buscar2, name="buscar2" ),
 ]

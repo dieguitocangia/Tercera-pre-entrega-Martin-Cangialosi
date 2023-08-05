@@ -30,3 +30,7 @@
 24) Creo un bloque en base.html para despues poder heredarlo al html de cada clase utilizando {% extends 'appDiego/base.html' %}
 25) Creo superuser. Usuario admin - Contraseña 12345
 26) Importo todos los modelos en el archivo admin.py dentro del paquete de la aplicación para poder modificarlos desde el panel de Administración.
+27) Creo el archivo forms.py dentro de la aplicación, que contiene el import de forms desde django.
+28) Creo clase ClaseFormulario que hereda de forms.Form y defino los atributos de dicha clase.
+29) Creo la funcion en views.py para guardar una clase a través del formulario, para ello debo importar todo de .forms
+30) Creo el archivo html para el formulario.

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .views import *
 from .models import *
+from .forms import *
+
 
 # Create your views here.
 def index(request):
@@ -21,9 +22,24 @@ def alumnos(request):
 
 def claseForm(request):
     if request.method == "POST":
-        clase = Clase(nombre=request.post['nombre'], horario=request.post['horario'])
-        clase.save()
-        return HttpResponse("Se grabo con exito la clase")
-    
-    return render (request, "appDiego/claseForm.html")
+        nuevoForm=ClaseFormulario(request.POST)
+        print(nuevoForm)
+        if nuevoForm.is_valid:
+            informacion = nuevoForm.cleaned_data
+            clase = Clase(nombre=informacion['nombre'], horario=informacion['horario'])
+            clase.save()
+            return render(request, 'appDiego/base.html')
+    else:
+        nuevoForm = ClaseFormulario()
 
+    return render(request, 'appDiego/claseForm.html', {"form":nuevoForm})
+
+def buscarClase(request):
+    return render(request,'appDiego/buscarClase.html')
+
+def buscar2(request):
+    if request.GET['clase']:
+        clase=request.GET['clase']
+        horarios= Clase.objects.filter(nombre__icontains=clase)
+        return render(request, "appDiego/resultadosClase.html",{"clases": clase, "horarios": horarios })
+    return HttpResponse("No se ingresaron datos para buscar")
