@@ -34,3 +34,5 @@
 28) Creo clase ClaseFormulario que hereda de forms.Form y defino los atributos de dicha clase.
 29) Creo la funcion en views.py para guardar una clase a través del formulario, para ello debo importar todo de .forms
 30) Creo el archivo html para el formulario.
+31) Para agregar nueva clase ir a /appDiego/clase_form
+32) Para buscar los horarios de una clase ir a /appDiego/buscar_clase

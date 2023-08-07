@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/appDiego/buscar2" method="get">
-        {% csrf_token %}
-        <input type="text" name="clase" id="clase">
-        <input type="submit" value="Buscar">
-    </form>
-</body>
-</html>
+{% extends 'appDiego/base.html' %}
+{% load static %}
+
+{%block titulo%}
+    FitClub - Agregar Clase
+{%endblock titulo%}
+
+{%block header%}
+Buscá los horarios de una clase aquí...
+{%endblock header%}
+
+{% block primario %}
+<h2>Buscar nueva Clase</h2>
+<form action="/appDiego/buscar2" method="get">
+    {% csrf_token %}
+    <input type="text" name="clase" id="clase">
+    <input type="submit" value="Buscar">
+</form>
+{% endblock primario %}
